@@ -1,0 +1,24 @@
+html, body {
+	height: 100%;
+}
+
+#tableContainer {
+	width: 50%;
+	height: 100%;
+}
+
+#wrap {
+	min-height: 100%;
+}
+
+#mainTable {
+	overflow:auto;
+	padding-bottom: 180px;
+}
+
+#footer {
+	position: relative;
+	margin-top: -180px;
+	height: 180px;
+	clear:both;
+} 

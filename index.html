@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TODO list</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/datepicker.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container" style="width:50%">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#all">All Tasks</a></li>
+				<li><a href="#done">Done</a></li>
+				<li><a href="#notdone">Not Done</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div id="tableContainer" class="container"></div>
+
+
+	<script id="viewTask" type="text/template" id="taskTemplate">
+			<td><%= name %></td>
+			<td><%= date %></td>
+			<td>
+				<% if (done) {%>
+					<button class="state btn btn-xs btn-success"><span class="glyphicon glyphicon-check"></span></button>
+				<%} else {%>
+					<button class="state btn btn-xs btn-danger"><span class="glyphicon glyphicon-unchecked"></span></button>
+				<%}%>
+			</td>
+			<td><button class="delete btn btn-xs"><span class="glyphicon glyphicon-trash"></span></td>
+	</script>
+
+
+	<script id="viewTasks" type="text/template">
+	<div id="wrap">
+		<div id="mainTable">
+			<table  class="table table-stripped">
+				<thead>
+					<tr><th>Title</th><th>Date</th><th>Status</th><th>Actions</th></tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td>
+							<input id="newName" class="form-control" type="text" placeholder="Enter task name">
+							<div class="alert name-alert alert-success">Name format is correct</div>
+							<div class="alert name-alert alert-danger">Title can`t be blank</div>
+						</td>
+						<td>
+								<input type="text" class="span2 form-control" data-date-format="dd.mm.yyyy" id="newDate">
+								<div class="alert date-alert alert-success">Date format is correct</div>
+								<div class="alert date-alert alert-danger">Date can`t be blank</div>
+						</td>
+						<td>
+							<button class="addTask btn btn-ex"><span class="glyphicon glyphicon-plus"></span></button>
+						</td>
+					</tr>
+				</tfoot>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="footer">
+	All tasks : <span class="allCount">0</span><br>
+	Done tasks : <span class="doneCount">0</span><br>
+	Not done tasks : <span class="notDoneCount">0</span><br>
+	<button class="clearList btn btn-primary">Clear list</button>
+	</div>
+	</script>
+
+	<script src="js/lib/jquery.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/lib/bootstrap-datepicker.js"></script>
+	<script src="js/lib/underscore.js"></script>
+	<script src="js/lib/backbone.js"></script>
+	<script src="js/lib/backbone.localStorage-min.js"></script>
+	<script src="js/datacheckers.js"></script>
+	<script src="js/models.js"></script>
+	<script src="js/views.js"></script>
+	<script src="js/router.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>
